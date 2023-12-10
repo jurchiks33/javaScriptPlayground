@@ -16,3 +16,9 @@ function loadCardImages() {
     });
 }
 
+function drawCard(category, x, y) {
+    const image = cardImages[category];
+    if (image) {
+        ctx.drawImage(image, x, y, 100, 150);
+    }
+}
