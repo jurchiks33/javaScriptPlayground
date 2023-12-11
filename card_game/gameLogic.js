@@ -21,3 +21,13 @@ function attackCard(attackingCard, defendingCard) {
         console.log(`Card ${defendingCard} is defeated!`)
     }
 }
+
+let selectedCards = null;
+let playerCards = ['1', '2', '3', '4', '5'];
+let enemyCards = ['1', '2', '3', '4', '5'];
+
+function selectedCard(card) {
+    if (playerCards.includes(card)) {
+        selectedCard = card;
+    }
+}
