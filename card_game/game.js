@@ -12,7 +12,7 @@ const categories = ['1', '2', '3', '4', '5'];
 function loadCardImages() {
     categories.forEach(category => {
         const image = new Image();
-        image.src = `card_game/images/${category}.png`;
+        image.src = `/card_game/images/${category}.png`;
         image.onload = () => {
             imagesLoaded++;
             if (imagesLoaded === categories.length) {
@@ -26,6 +26,10 @@ function loadCardImages() {
 function drawAllCards() {
     categories.forEach((category, index) => {
         drawCard(category, 50 + 110 * index, 50);
+    });
+
+    categories.forEach((category, index) => {
+        drawCard(category, 50 + 110 * index, canvas.height - 200);
     });
 }
 
