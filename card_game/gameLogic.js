@@ -8,3 +8,16 @@ const cardStats = {
     '5': {attack: 4, health: 11}
 };
 
+function attackCard(attackingCard, defendingCard) {
+    const attacker = cardStats[attackingCard];
+    const defender = cardStats[defendingCard];
+
+    //Attack logis: reduce health by attackers attack.
+    defender.health -= attacker.attack;
+
+    //check if defenders health drops to 0 or below and card
+    //is removed from the game.
+    if (defender.health <= 0) {
+        console.log(`Card ${defendingCard} is defeated!`)
+    }
+}
