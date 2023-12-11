@@ -40,16 +40,36 @@ function drawCard(category, x, y) {
         //draw attack and health stats.
         ctx.fillStyle = 'white'; //text color.
         ctx.font = '16px Arial'; //font and size.
-        ctx.fillText(`atk: ${cardStats[category].attack}`, x, y + 170);
-        ctx.fillText(`HP: ${cardStats[category].health}`, x + 55, y + 170);
+        ctx.fillText(`atk: ${cardStats[category].attack}`, 
+                    x, y + 170);
+        ctx.fillText(`HP: ${cardStats[category].health}`, 
+                    x + 55, y + 170);
     }
 }
 
-let selectedCards = null;
-let playerCards = ['1', '2', '3', '4', '5'];
-let enemyCards = ['1', '2', '3', '4', '5'];
+canvas.addEventListener('click', function(event) {
+    const rect = canvas.getBoundingClientRect();
+    const x = event.clientX - rect.left;
+    const y = event.clientY - rect.top;
 
+    categories.forEach((category, index) => {
+        //defining card area.
+        const cardX = 50 + 110 * index;
+        const cardYPlayer = canvas.height - 200;
+        const cardYEnemy = 50;
 
+        //check if area is within player card
+        if (x >= cardX && x <= cardX + 100 && y >= cardYPlayer && y <= cardYPlayer + 150) {
+            selectedCard(category);
+        }
+
+        //check if clicked area is within an enemy card.
+        if (selectedCard && x >= cardX && x <= cardX + 100 && y >= cardYEnemy && y <= cardYEnemy + 150) {
+            attackEnemyCard(category);
+            drawAllCards(); // Redraw cards to update visuals
+        }
+    });
+});
 
 // Load Images
 loadCardImages();

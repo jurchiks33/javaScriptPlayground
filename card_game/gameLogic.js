@@ -31,3 +31,10 @@ function selectedCard(card) {
         selectedCard = card;
     }
 }
+
+function attackEnemyCard(enemyCard) {
+    if (selectedCard && enemyCards.includes(emptyCard)) {
+        attackCard(selectedCard, enemyCard);
+        selectedCard = null; //reset selected card after attack.
+    }
+}
