@@ -39,9 +39,9 @@ function drawCard(category, x, y) {
         ctx.drawImage(image, x, y, 100, 150);
         //draw attack and health stats.
         ctx.fillStyle = 'white'; //text color.
-        ctx.font = '20px Arial'; //font and size.
-        ctx.fillText(`atk: ${cardStats[category].attack}`, x + 10, y + 140);
-        ctx.fillText(`HP: ${cardStats[category].health}`, x + 60, y + 140);
+        ctx.font = '16px Arial'; //font and size.
+        ctx.fillText(`atk: ${cardStats[category].attack}`, x, y + 170);
+        ctx.fillText(`HP: ${cardStats[category].health}`, x + 55, y + 170);
     }
 }
 
