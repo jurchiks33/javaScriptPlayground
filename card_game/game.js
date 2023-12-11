@@ -22,3 +22,8 @@ function drawCard(category, x, y) {
         ctx.drawImage(image, x, y, 100, 150);
     }
 }
+
+//Load Images
+loadCardImages();
+
+cardImages['1'].onload = () => drawCard('1', 50, 50);
