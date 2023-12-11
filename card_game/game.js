@@ -45,5 +45,11 @@ function drawCard(category, x, y) {
     }
 }
 
+let selectedCards = null;
+let playerCards = ['1', '2', '3', '4', '5'];
+let enemyCards = ['1', '2', '3', '4', '5'];
+
+
+
 // Load Images
 loadCardImages();
