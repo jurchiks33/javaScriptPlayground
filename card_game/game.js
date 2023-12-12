@@ -41,11 +41,10 @@ function drawAllCards() {
 function drawCard(category, x, y) {
     const image = cardImages[category];
     if (image) {
-        //Check for selected cards.
-        if (selectedCardId === category) {
-            //Highlight selected card.
-            ctx.fillStyle = 'yellow'; //Highlight color.
-            ctx.fillRect(x - 5, y - 5, 110, 160);   //rectangle for highlight.
+        // Highlight only if it's a player card and selected
+        if (selectedCardId === category && playerCards.includes(category)) {
+            ctx.fillStyle = 'yellow';
+            ctx.fillRect(x - 5, y - 5, 110, 160); // Rectangle for highlight
         }
 
         ctx.drawImage(image, x, y, 100, 150);
