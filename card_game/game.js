@@ -64,18 +64,16 @@ canvas.addEventListener('click', function(event) {
     const y = event.clientY - rect.top;
 
     categories.forEach((category, index) => {
-        //defining card area.
         const cardX = 50 + 110 * index;
         const cardYPlayer = canvas.height - 200;
         const cardYEnemy = 50;
 
-        //check if area is within player card
+        // Check if clicked area is within a player card
         if (x >= cardX && x <= cardX + 100 && y >= cardYPlayer && y <= cardYPlayer + 150) {
-            selectCard(category); 
-            console.log("Selected card: " + category);
-            drawAllCards();
+            selectCard(category); // Select the new card
         }
-    
+
+        // Check if clicked area is within an enemy card and a card is already selected
         if (selectedCardId && x >= cardX && x <= cardX + 100 && y >= cardYEnemy && y <= cardYEnemy + 150) {
             attackEnemyCard(category);
             drawAllCards(); // Redraw cards to update visuals

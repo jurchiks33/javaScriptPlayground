@@ -29,7 +29,8 @@ let enemyCards = ['1', '2', '3', '4', '5'];
 
 function selectCard(card) {
     if (playerCards.includes(card)) {
-        selectedCardId = card;
+        selectedCardId = card; // This will overwrite any previous selection
+        drawAllCards(); // Redraw all cards to reflect the new selection
     }
 }
 
