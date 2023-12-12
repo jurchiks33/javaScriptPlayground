@@ -22,19 +22,19 @@ function attackCard(attackingCard, defendingCard) {
     }
 }
 
-let selectedCards = null;
+let selectedCardId = null;
 let playerCards = ['1', '2', '3', '4', '5'];
 let enemyCards = ['1', '2', '3', '4', '5'];
 
 function selectedCard(card) {
     if (playerCards.includes(card)) {
-        selectedCard = card;
+        selectedCardId = card;
     }
 }
 
 function attackEnemyCard(enemyCard) {
     if (selectedCard && enemyCards.includes(emptyCard)) {
         attackCard(selectedCard, enemyCard);
-        selectedCard = null; //reset selected card after attack.
+        selectedCardId = null; //reset selected card after attack.
     }
 }

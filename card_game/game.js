@@ -60,11 +60,10 @@ canvas.addEventListener('click', function(event) {
 
         //check if area is within player card
         if (x >= cardX && x <= cardX + 100 && y >= cardYPlayer && y <= cardYPlayer + 150) {
-            selectedCard(category);
+            selectCard(category); 
         }
-
-        //check if clicked area is within an enemy card.
-        if (selectedCard && x >= cardX && x <= cardX + 100 && y >= cardYEnemy && y <= cardYEnemy + 150) {
+    
+        if (selectedCardId && x >= cardX && x <= cardX + 100 && y >= cardYEnemy && y <= cardYEnemy + 150) {
             attackEnemyCard(category);
             drawAllCards(); // Redraw cards to update visuals
         }
