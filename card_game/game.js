@@ -70,10 +70,9 @@ canvas.addEventListener('click', function(event) {
 
     categories.forEach((category, index) => {
         const cardX = 50 + 110 * index;
-        const cardYPlayer = canvas.height - 200;
-        const cardYEnemy = 50;
+        const cardYPlayer = canvas.height - 200; // Y-coordinate of player cards
 
-        // Check if clicked area is within a player card
+        // Check if clicked area is within a player card (bottom row)
         if (x >= cardX && x <= cardX + 100 && y >= cardYPlayer && y <= cardYPlayer + 150) {
             selectCard(category); // Select the new card
         }
