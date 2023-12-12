@@ -36,6 +36,13 @@ function drawAllCards() {
 function drawCard(category, x, y) {
     const image = cardImages[category];
     if (image) {
+        //Check for selected cards.
+        if (selectedCardId === category) {
+            //Highlight selected card.
+            ctx.fillStyle = 'yellow'; //Highlight color.
+            ctx.fillRect(x - 5, y - 5, 110, 160);   //rectangle for highlight.
+        }
+
         ctx.drawImage(image, x, y, 100, 150);
 
         ctx.fillStyle = 'green'; // Background color
@@ -65,6 +72,8 @@ canvas.addEventListener('click', function(event) {
         //check if area is within player card
         if (x >= cardX && x <= cardX + 100 && y >= cardYPlayer && y <= cardYPlayer + 150) {
             selectCard(category); 
+            console.log("Selected card: " + category);
+            drawAllCards();
         }
     
         if (selectedCardId && x >= cardX && x <= cardX + 100 && y >= cardYEnemy && y <= cardYEnemy + 150) {
