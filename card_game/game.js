@@ -24,16 +24,19 @@ function loadCardImages() {
 }
 
 function drawAllCards() {
+    // Clear the entire canvas first
+    ctx.clearRect(0, 0, canvas.clientWidth, canvas.height);
+
+    // Reset the canvas background
+    ctx.fillStyle = 'green';
+    ctx.fillRect(0, 0, canvas.clientWidth, canvas.height);
+
+    // Redraw all the cards
     categories.forEach((category, index) => {
         drawCard(category, 50 + 110 * index, 50); // Draw top row cards
         drawCard(category, 50 + 110 * index, canvas.height - 200); // Draw bottom row cards
     });
 }
-
-//     categories.forEach((category, index) => {
-//         drawCard(category, 50 + 110 * index, canvas.height - 200);
-//     });
-// }
 
 function drawCard(category, x, y) {
     const image = cardImages[category];
