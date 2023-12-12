@@ -37,13 +37,17 @@ function drawCard(category, x, y) {
     const image = cardImages[category];
     if (image) {
         ctx.drawImage(image, x, y, 100, 150);
-        //draw attack and health stats.
-        ctx.fillStyle = 'white'; //text color.
-        ctx.font = '16px Arial'; //font and size.
-        ctx.fillText(`atk: ${cardStats[category].attack}`, 
-                    x, y + 170);
+
+        ctx.fillStyle = 'green'; // Background color
+        ctx.fillRect(x, y + 150, 100, 30);
+
+        // Draw attack and health stats
+        ctx.fillStyle = 'white'; // Text color
+        ctx.font = '16px Arial'; // Font and size
+        ctx.fillText(`Atk: ${cardStats[category].attack}`,
+                             x, y + 170);
         ctx.fillText(`HP: ${cardStats[category].health}`, 
-                    x + 55, y + 170);
+                            x + 55, y + 170);
     }
 }
 
