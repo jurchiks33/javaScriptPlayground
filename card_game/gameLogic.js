@@ -1,4 +1,4 @@
-//game logis is stored in this file.
+//game logic is stored in this file.
 
 const cardStats = {
     '1': {attack: 5, health: 10},
@@ -23,18 +23,19 @@ function attackCard(attackingCard, defendingCard) {
 }
 
 let selectedCardId = null;
+
 let playerCards = ['1', '2', '3', '4', '5'];
 let enemyCards = ['1', '2', '3', '4', '5'];
 
-function selectedCard(card) {
+function selectCard(card) {
     if (playerCards.includes(card)) {
         selectedCardId = card;
     }
 }
 
 function attackEnemyCard(enemyCard) {
-    if (selectedCard && enemyCards.includes(emptyCard)) {
-        attackCard(selectedCard, enemyCard);
+    if (selectedCardId && enemyCards.includes(enemyCard)) {
+        attackCard(selectedCardId, enemyCard);
         selectedCardId = null; //reset selected card after attack.
     }
 }
