@@ -72,16 +72,10 @@ canvas.addEventListener('click', function(event) {
         const cardX = 50 + 110 * index;
         const cardYPlayer = canvas.height - 200; // Y-coordinate of player cards
 
-        // Check if clicked area is within a player card (bottom row)
         if (x >= cardX && x <= cardX + 100 && y >= cardYPlayer && y <= cardYPlayer + 150) {
             selectCard(category); // Select the new card
         }
 
-        // Check if clicked area is within an enemy card and a card is already selected
-        if (selectedCardId && x >= cardX && x <= cardX + 100 && y >= cardYEnemy && y <= cardYEnemy + 150) {
-            attackEnemyCard(category);
-            drawAllCards(); // Redraw cards to update visuals
-        }
     });
 });
 
