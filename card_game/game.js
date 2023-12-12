@@ -25,13 +25,15 @@ function loadCardImages() {
 
 function drawAllCards() {
     categories.forEach((category, index) => {
-        drawCard(category, 50 + 110 * index, 50);
-    });
-
-    categories.forEach((category, index) => {
-        drawCard(category, 50 + 110 * index, canvas.height - 200);
+        drawCard(category, 50 + 110 * index, 50); // Draw top row cards
+        drawCard(category, 50 + 110 * index, canvas.height - 200); // Draw bottom row cards
     });
 }
+
+//     categories.forEach((category, index) => {
+//         drawCard(category, 50 + 110 * index, canvas.height - 200);
+//     });
+// }
 
 function drawCard(category, x, y) {
     const image = cardImages[category];
