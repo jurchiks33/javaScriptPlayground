@@ -33,16 +33,16 @@ function drawAllCards() {
 
     // Redraw all the cards
     categories.forEach((category, index) => {
-        drawCard(category, 50 + 110 * index, 50); // Draw top row cards
-        drawCard(category, 50 + 110 * index, canvas.height - 200); // Draw bottom row cards
+        drawCard(category, 50 + 110 * index, 50, false); // Draw top row cards (enemy)
+        drawCard(category, 50 + 110 * index, canvas.height - 200, true); // Draw bottom row cards (player)
     });
 }
 
-function drawCard(category, x, y) {
+function drawCard(category, x, y, isPlayerCard) {
     const image = cardImages[category];
     if (image) {
-        // Highlight only if it's a player card and selected
-        if (selectedCardId === category && playerCards.includes(category)) {
+        // Highlight only if it's a selected player card
+        if (selectedCardId === category && isPlayerCard) {
             ctx.fillStyle = 'yellow';
             ctx.fillRect(x - 5, y - 5, 110, 160); // Rectangle for highlight
         }
@@ -66,17 +66,21 @@ canvas.addEventListener('click', function(event) {
     const rect = canvas.getBoundingClientRect();
     const x = event.clientX - rect.left;
     const y = event.clientY - rect.top;
+    const cardYEnemy = 50; // Y-coordinate for enemy cards
+    const cardYPlayer = canvas.height - 200; // Y-coordinate for player cards
 
     categories.forEach((category, index) => {
         const cardX = 50 + 110 * index;
-        const cardYPlayer = canvas.height - 200; // Y-coordinate of player cards
 
         if (x >= cardX && x <= cardX + 100 && y >= cardYPlayer && y <= cardYPlayer + 150) {
-            selectCard(category); // Select the new card
+            selectCard(category);
         }
 
+        if (selectedCardId && x >= cardX && x <= cardX + 100 && y >= cardYEnemy && y <= cardYEnemy + 150) {
+            attackEnemyCard(category);
+        }
     });
 });
 
-// Load Images
+// Load images
 loadCardImages();
